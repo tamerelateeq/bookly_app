@@ -1,6 +1,9 @@
+import 'package:bookly_app/Features/home/presentation/views/home_view.dart';
+import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/presentation/Views/Widgets/sliding_text.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SplachViewBody extends StatefulWidget {
   const SplachViewBody({super.key});
@@ -17,11 +20,16 @@ class _SplachViewBodyState extends State<SplachViewBody>
   @override
   void initState() {
     super.initState();
-    animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 2));
-    slidingAnimation = Tween(begin: Offset(0, 2), end: Offset.zero)
-        .animate(animationController);
-    animationController.forward();
+    //method for animation
+    initSlideAnimation();
+    // navigation to Home
+    navigationToHome();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    animationController.dispose();
   }
 
   @override
@@ -37,8 +45,28 @@ class _SplachViewBodyState extends State<SplachViewBody>
         // add space bysize box
         const SizedBox(height: 4),
         // add slideing animation text
-        Sliding_text(slidingAnimation: slidingAnimation),
+        SlidingText(slidingAnimation: slidingAnimation),
       ],
     );
+  }
+
+// this method for initial slide animation
+  void initSlideAnimation() {
+    animationController =
+        AnimationController(vsync: this, duration: Duration(seconds: 2));
+    slidingAnimation = Tween(begin: Offset(0, 2), end: Offset.zero)
+        .animate(animationController);
+    animationController.forward();
+  }
+
+  void navigationToHome() {
+    Future.delayed(const Duration(seconds: 3), () {
+      // to push new screen
+      Get.to(
+        () => HomeView(),
+        transition: Transition.fadeIn,
+        duration: kDurationTime,
+      );
+    });
   }
 }

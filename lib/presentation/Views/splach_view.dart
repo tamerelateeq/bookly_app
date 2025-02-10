@@ -1,3 +1,4 @@
+import 'package:bookly_app/presentation/Views/Widgets/splach_view_body.dart';
 import 'package:flutter/material.dart';
 
 class SplachView extends StatelessWidget {
@@ -5,6 +6,8 @@ class SplachView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: SplachViewBody(),
+    );
   }
 }

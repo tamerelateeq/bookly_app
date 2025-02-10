@@ -1,7 +1,7 @@
 import 'package:bookly_app/Features/home/presentation/views/home_view.dart';
 import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/assets.dart';
-import 'package:bookly_app/presentation/Views/Widgets/sliding_text.dart';
+import 'package:bookly_app/Features/splash/presentation/Views/Widgets/sliding_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -59,6 +59,7 @@ class _SplachViewBodyState extends State<SplachViewBody>
     animationController.forward();
   }
 
+  // this method to navigate to Home View
   void navigationToHome() {
     Future.delayed(const Duration(seconds: 3), () {
       // to push new screen

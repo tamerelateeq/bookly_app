@@ -14,7 +14,7 @@ class BookListview extends StatelessWidget {
           itemBuilder: (context, index) {
             return const Padding(
               padding: EdgeInsets.symmetric(horizontal: 6),
-              child: CustomeListviewItems(),
+              child: CustomeItems(),
             );
           }),
     );

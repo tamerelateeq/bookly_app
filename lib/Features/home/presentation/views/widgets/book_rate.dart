@@ -7,6 +7,7 @@ class BooksRate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         // Icons
         const Icon(

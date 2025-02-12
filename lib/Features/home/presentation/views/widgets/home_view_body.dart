@@ -32,6 +32,11 @@ class HomeViewBody extends StatelessWidget {
           'Best Sellar',
           style: Styles.textStyle18,
         ),
+        // add space
+        SizedBox(
+          height: 20,
+        ),
+        // add best Sellar list view
         BestSellarBody()
       ],
     );

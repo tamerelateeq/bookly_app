@@ -1,5 +1,4 @@
 import 'package:bookly_app/core/utils/assets.dart';
-import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class BestSellarBody extends StatelessWidget {
@@ -31,7 +30,6 @@ class BestSellarBody extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 20, left: 16),
                 child: Text(
                   'Harry Potter and the Goblet of Fire',
-                  style: Styles.titleBest,
                 ),
               ),
             ],

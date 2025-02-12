@@ -30,7 +30,7 @@ class HomeViewBody extends StatelessWidget {
         // add Head Title
         Text(
           'Best Sellar',
-          style: Styles.titleMedium,
+          style: Styles.textStyle18,
         ),
         BestSellarBody()
       ],

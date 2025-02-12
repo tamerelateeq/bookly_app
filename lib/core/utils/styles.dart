@@ -5,4 +5,8 @@ abstract class Styles {
     fontFamily: 'Montserrat-SemiBold',
     fontSize: 20,
   );
+  static const titleBest = TextStyle(
+    fontFamily: 'GT Sectra Fine Regular',
+    fontSize: 22,
+  );
 }

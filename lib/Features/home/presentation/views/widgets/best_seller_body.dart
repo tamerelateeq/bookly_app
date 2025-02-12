@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/utils/assets.dart';
+import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class BestSellarBody extends StatelessWidget {
@@ -10,6 +11,7 @@ class BestSellarBody extends StatelessWidget {
       height: 120,
       child: Row(
         children: [
+          // add photo
           AspectRatio(
             aspectRatio: 2.4 / 4,
             child: Container(
@@ -20,6 +22,19 @@ class BestSellarBody extends StatelessWidget {
                     fit: BoxFit.fill,
                   )),
             ),
+          )
+          // add the text body
+          ,
+          Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 20, left: 16),
+                child: Text(
+                  'Harry Potter and the Goblet of Fire',
+                  style: Styles.titleBest,
+                ),
+              ),
+            ],
           )
         ],
       ),

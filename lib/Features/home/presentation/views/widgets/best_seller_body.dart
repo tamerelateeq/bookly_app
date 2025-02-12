@@ -64,7 +64,7 @@ class BestSellarBody extends StatelessWidget {
                           .copyWith(fontWeight: FontWeight.bold),
                     ),
                     //space
-                    Spacer(),
+                    const Spacer(),
                     // Book Rating
                     BooksRate()
                   ],

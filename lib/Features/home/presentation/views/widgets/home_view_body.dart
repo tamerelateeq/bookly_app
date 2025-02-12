@@ -15,7 +15,9 @@ class HomeViewBody extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // customer App Bar
-            CustomeAppbar(),
+            CustomeAppbar(
+              icon: Icons.search,
+            ),
             // add list view book images
             BookListview(),
             // space

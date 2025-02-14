@@ -16,6 +16,7 @@ class BookActions extends StatelessWidget {
             child:
                 // button for price
                 CustomeButton(
+              onTap: () {},
               colorButton: Colors.white,
               colorText: Colors.black,
               borderRadius: BorderRadius.only(

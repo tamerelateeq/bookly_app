@@ -2,6 +2,7 @@ import 'package:bookly_app/Features/home/presentation/views/widgets/book_action_
 import 'package:bookly_app/Features/home/presentation/views/widgets/bookcontent_details_view.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/custome_details_appbar.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/custome_listview_items.dart';
+import 'package:bookly_app/Features/home/presentation/views/widgets/details_listview.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 
 import 'package:flutter/material.dart';
@@ -17,15 +18,15 @@ class BookDetailsBody extends StatelessWidget {
         CustomeDetailsAppbar(),
         // Image Items
         SizedBox(
-          height: MediaQuery.of(context).size.width * 0.8,
+          height: MediaQuery.of(context).size.height * 0.3,
           child: CustomeItems(),
         ),
         //space
-        SizedBox(height: 43),
+        const SizedBox(height: 43),
         // Title description text
         BookDetails(),
         //Spce
-        SizedBox(height: 38),
+        const SizedBox(height: 38),
         // add Button for price & Free
         const BookActions(),
         //Spce
@@ -43,7 +44,12 @@ class BookDetailsBody extends StatelessWidget {
             ),
           ),
         ),
-        //
+        //Spce
+        const SizedBox(height: 20),
+        // List View
+        DetailsListview(),
+        //Spce
+        const SizedBox(height: 40),
       ],
     );
   }

@@ -8,35 +8,38 @@ class BookActions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child:
-              // button for price
-              CustomeButton(
-            colorButton: Colors.white,
-            colorText: Colors.black,
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(16),
-              topLeft: Radius.circular(16),
+    return Padding(
+      padding: const EdgeInsets.only(right: 38, left: 38),
+      child: Row(
+        children: [
+          Expanded(
+            child:
+                // button for price
+                CustomeButton(
+              colorButton: Colors.white,
+              colorText: Colors.black,
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(16),
+                topLeft: Radius.circular(16),
+              ),
+              text: '19.99€',
             ),
-            text: '19.99€',
           ),
-        ),
 
-        // Button for free
-        Expanded(
-          child: CustomeButton(
-            colorButton: Color(0xffef8262),
-            colorText: Colors.white,
-            borderRadius: BorderRadius.only(
-              bottomRight: Radius.circular(16),
-              topRight: Radius.circular(16),
+          // Button for free
+          Expanded(
+            child: CustomeButton(
+              colorButton: Color(0xffef8262),
+              colorText: Colors.white,
+              borderRadius: BorderRadius.only(
+                bottomRight: Radius.circular(16),
+                topRight: Radius.circular(16),
+              ),
+              text: 'Free preview',
             ),
-            text: 'Free preview',
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

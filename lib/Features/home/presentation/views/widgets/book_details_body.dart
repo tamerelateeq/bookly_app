@@ -24,19 +24,26 @@ class BookDetailsBody extends StatelessWidget {
         SizedBox(height: 43),
         // Title description text
         BookDetails(),
+        //Spce
+        SizedBox(height: 38),
         // add Button for price & Free
-        Padding(
-          padding:
-              const EdgeInsets.only(right: 38, left: 38, top: 38, bottom: 45),
-          child: const BookActions(),
-        ),
+        const BookActions(),
+        //Spce
+        SizedBox(height: 50),
         // text
-        Text(
-          'you can also like',
-          style: Styles.textStyle14.copyWith(
-            fontWeight: FontWeight.w600,
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 38),
+            child: Text(
+              'You can also like',
+              style: Styles.textStyle14.copyWith(
+                fontWeight: FontWeight.w600,
+              ),
+            ),
           ),
-        )
+        ),
+        //
       ],
     );
   }

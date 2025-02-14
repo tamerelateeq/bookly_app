@@ -7,8 +7,12 @@ class SearchAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 24, right: 24, bottom: 20, top: 40),
-      child: CustomeTextFieldSearch(),
+      padding: const EdgeInsets.only(left: 10, right: 10, bottom: 20, top: 60),
+      child: CustomeTextFieldSearch(
+        hintText: 'Search ...',
+        prefixIcon: Icons.arrow_back,
+        suffixIcon: Icons.search,
+      ),
     );
   }
 }

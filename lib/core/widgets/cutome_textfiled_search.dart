@@ -8,8 +8,9 @@ class CustomeTextFieldSearch extends StatelessWidget {
       this.maxLines = 1,
       this.onSaved,
       this.onChanged,
-      this.icon,
-      this.onPressed});
+      this.prefixIcon,
+      this.onPressed,
+      this.suffixIcon});
   final String? hintText;
   final String? intialValue;
 
@@ -17,7 +18,8 @@ class CustomeTextFieldSearch extends StatelessWidget {
   final void Function()? onPressed;
   final void Function(String?)? onSaved;
   final void Function(String)? onChanged;
-  final IconData? icon;
+  final IconData? prefixIcon;
+  final IconData? suffixIcon;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -33,7 +35,8 @@ class CustomeTextFieldSearch extends StatelessWidget {
       onSaved: onSaved,
       maxLines: maxLines,
       decoration: InputDecoration(
-        prefixIcon: IconButton(onPressed: onPressed, icon: Icon(icon)),
+        prefixIcon: IconButton(onPressed: onPressed, icon: Icon(prefixIcon)),
+        suffixIcon: IconButton(onPressed: onPressed, icon: Icon(suffixIcon)),
         border: buildBulder(),
         enabledBorder: buildBulder(),
         focusedBorder: buildBulder(Colors.white),
@@ -44,7 +47,7 @@ class CustomeTextFieldSearch extends StatelessWidget {
 
   OutlineInputBorder buildBulder([color]) {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(8),
+      borderRadius: BorderRadius.circular(16),
       borderSide: BorderSide(color: Colors.white),
     );
   }

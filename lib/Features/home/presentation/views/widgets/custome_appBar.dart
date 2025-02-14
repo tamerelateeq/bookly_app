@@ -1,3 +1,4 @@
+import 'package:bookly_app/Features/search/presentation/views/search_view.dart';
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,9 @@ class CustomeAppbar extends StatelessWidget {
           ),
           const Spacer(),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, SearchView.id);
+            },
             icon: Icon(
               icon,
               size: 28,

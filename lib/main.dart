@@ -1,5 +1,6 @@
 import 'package:bookly_app/Features/home/presentation/views/book_details_view.dart';
 import 'package:bookly_app/Features/home/presentation/views/home_view.dart';
+import 'package:bookly_app/Features/search/presentation/views/search_view.dart';
 import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/Features/splash/presentation/Views/splach_view.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
       routes: {
         'HomeView': (context) => HomeView(),
         'BookDetailsView': (context) => BookDetailsView(),
+        'SearchView': (context) => SearchView(),
       },
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(

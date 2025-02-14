@@ -1,5 +1,4 @@
 import 'package:bookly_app/Features/home/presentation/views/widgets/book_rate.dart';
-import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -23,14 +22,17 @@ class BookDetails extends StatelessWidget {
           ),
         ),
         // space
-        const SizedBox(height: 3),
+        const SizedBox(height: 12),
         // Sub Title
         Text(
           'J.K. Rowling',
-          style: Styles.textStyle14.copyWith(color: Color(0xffb7b5bc)),
+          style: Styles.textStyle18.copyWith(
+            color: Color(0xffb7b5bc),
+            fontStyle: FontStyle.italic,
+          ),
         ),
         // space
-        const SizedBox(height: 3),
+        const SizedBox(height: 18),
         //  Rating
         BooksRate()
       ],

@@ -8,7 +8,7 @@ abstract class Styles {
   );
 
   static const textStyle16 = TextStyle(
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w600,
     fontSize: 16,
   );
 
@@ -23,7 +23,8 @@ abstract class Styles {
   );
 
   static const textStyle30 = TextStyle(
-      fontWeight: FontWeight.normal,
-      fontSize: 30,
-      fontFamily: kGTSectraFineText);
+    fontWeight: FontWeight.bold,
+    fontSize: 30,
+    fontFamily: kGTSectraFineText,
+  );
 }

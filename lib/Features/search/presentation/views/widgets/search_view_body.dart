@@ -10,6 +10,7 @@ class SearchViewBody extends StatelessWidget {
       children: [
         // add app bar
         SearchAppbar(),
+        //
       ],
     );
   }

@@ -9,13 +9,15 @@ class CustomeTextFieldSearch extends StatelessWidget {
       this.onSaved,
       this.onChanged,
       this.prefixIcon,
-      this.onPressed,
+      this.onPressedPrefix,
+      this.onPressedSuffix,
       this.suffixIcon});
   final String? hintText;
   final String? intialValue;
 
   final int maxLines;
-  final void Function()? onPressed;
+  final void Function()? onPressedPrefix;
+  final void Function()? onPressedSuffix;
   final void Function(String?)? onSaved;
   final void Function(String)? onChanged;
   final IconData? prefixIcon;
@@ -35,8 +37,10 @@ class CustomeTextFieldSearch extends StatelessWidget {
       onSaved: onSaved,
       maxLines: maxLines,
       decoration: InputDecoration(
-        prefixIcon: IconButton(onPressed: onPressed, icon: Icon(prefixIcon)),
-        suffixIcon: IconButton(onPressed: onPressed, icon: Icon(suffixIcon)),
+        prefixIcon:
+            IconButton(onPressed: onPressedPrefix, icon: Icon(prefixIcon)),
+        suffixIcon:
+            IconButton(onPressed: onPressedSuffix, icon: Icon(suffixIcon)),
         border: buildBulder(),
         enabledBorder: buildBulder(),
         focusedBorder: buildBulder(Colors.white),

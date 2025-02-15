@@ -2,8 +2,8 @@ import 'package:bookly_app/Features/home/presentation/views/book_details_view.da
 import 'package:bookly_app/Features/home/presentation/views/widgets/best_seller_body.dart';
 import 'package:flutter/material.dart';
 
-class SearchListview extends StatelessWidget {
-  const SearchListview({super.key});
+class SearchListView extends StatelessWidget {
+  const SearchListView({super.key});
 
   @override
   Widget build(BuildContext context) {

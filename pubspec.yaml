@@ -28,6 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  bloc: ^9.0.0
   cupertino_icons: ^1.0.8
   dart_ipify: ^1.1.1
   dartz: ^0.10.1
@@ -37,6 +38,7 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^9.0.0
   get: ^4.6.6
+  get_it: ^8.0.3
   google_fonts: ^6.2.1
   widgets_to_image: ^1.0.0
 

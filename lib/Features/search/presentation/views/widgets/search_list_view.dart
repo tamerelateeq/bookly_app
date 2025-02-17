@@ -1,5 +1,5 @@
 import 'package:bookly_app/Features/home/presentation/views/book_details_view.dart';
-import 'package:bookly_app/Features/home/presentation/views/widgets/best_seller_body.dart';
+import 'package:bookly_app/Features/home/presentation/views/widgets/neweset_body.dart';
 import 'package:flutter/material.dart';
 
 class SearchListView extends StatelessWidget {
@@ -16,7 +16,7 @@ class SearchListView extends StatelessWidget {
             onTap: () {
               Navigator.pushNamed(context, BookDetailsView.id);
             },
-            child: BestSellarBody(),
+            //  child: NewesetBody(bookModel: ,),
           ),
         );
       },

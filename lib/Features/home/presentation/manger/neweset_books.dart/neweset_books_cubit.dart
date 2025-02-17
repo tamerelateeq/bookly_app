@@ -8,7 +8,7 @@ part 'neweset_books_state.dart';
 class NewesetBooksCubit extends Cubit<NewesetBooksState> {
   NewesetBooksCubit(this.homeRepo) : super(NewesetBooksInitial());
   final HomeRepo homeRepo;
-  Future<void> newesetBooks() async {
+  Future<void> fetchNewesetBooks() async {
     emit(NewesetBooksLoading());
     var result = await homeRepo.fetchNewesetBooks();
     result.fold((failures) {

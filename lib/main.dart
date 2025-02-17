@@ -30,7 +30,9 @@ class MyApp extends StatelessWidget {
             ..fetchFeaturedBooks(),
         ),
         BlocProvider(
-            create: (context) => NewesetBooksCubit(getIt.get<HomeRepoImpl>()))
+          create: (context) =>
+              NewesetBooksCubit(getIt.get<HomeRepoImpl>())..fetchNewesetBooks(),
+        )
       ],
       child: GetMaterialApp(
         routes: {

@@ -1,4 +1,3 @@
-import 'package:bookly_app/core/widgets/custome_error_widget.dart';
 import 'package:bookly_app/core/widgets/custome_loading_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';

@@ -1,10 +1,11 @@
+import 'package:bookly_app/Features/home/data/model/book_model/book_model.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/bookcontent_home_view.dart';
-import 'package:bookly_app/core/utils/assets.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-class BestSellarBody extends StatelessWidget {
-  const BestSellarBody({super.key});
-
+class NewesetBody extends StatelessWidget {
+  const NewesetBody({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -13,16 +14,9 @@ class BestSellarBody extends StatelessWidget {
         children: [
           // add photo
           AspectRatio(
-            aspectRatio: 2.4 / 4,
-            child: Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  image: DecorationImage(
-                    image: AssetImage(AssetsData.testImage),
-                    fit: BoxFit.fill,
-                  )),
-            ),
-          ),
+              aspectRatio: 2.4 / 4,
+              child: CachedNetworkImage(
+                  imageUrl: bookModel.volumeInfo!.imageLinks!.thumbnail!)),
           // add space
           const SizedBox(
             width: 30,

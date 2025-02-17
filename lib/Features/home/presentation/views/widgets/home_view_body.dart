@@ -1,4 +1,4 @@
-import 'package:bookly_app/Features/home/presentation/views/widgets/best_seller_listview.dart';
+import 'package:bookly_app/Features/home/presentation/views/widgets/neweset_listview.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/book_listview.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/custome_appbar.dart';
 import 'package:bookly_app/core/utils/styles.dart';
@@ -37,7 +37,7 @@ class HomeViewBody extends StatelessWidget {
       ),
       // add Best Selar List
       const SliverToBoxAdapter(
-        child: BestSellarListView(),
+        child: NewesetListView(),
       )
     ]);
   }

@@ -1,5 +1,6 @@
 import 'package:bookly_app/Features/home/data/model/book_model/book_model.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/bookcontent_home_view.dart';
+import 'package:bookly_app/core/widgets/custome_loading_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -13,17 +14,27 @@ class NewesetBody extends StatelessWidget {
       child: Row(
         children: [
           // add photo
-          AspectRatio(
-              aspectRatio: 2.4 / 4,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: AspectRatio(
+              aspectRatio: 2.6 / 4,
               child: CachedNetworkImage(
-                  imageUrl: bookModel.volumeInfo!.imageLinks!.thumbnail!)),
+                imageUrl: bookModel.volumeInfo!.imageLinks!.thumbnail!,
+                fit: BoxFit.fill,
+                placeholder: (context, url) => CustomeLoadingWidget(),
+                errorWidget: (context, url, error) => Icon(Icons.error),
+              ),
+            ),
+          ),
           // add space
           const SizedBox(
             width: 30,
           ),
           // add the text body
           Expanded(
-            child: BookContentText(),
+            child: BookContentText(
+              bookModel: bookModel,
+            ),
           )
         ],
       ),

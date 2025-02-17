@@ -1,5 +1,4 @@
 import 'package:bookly_app/Features/home/presentation/views/book_details_view.dart';
-import 'package:bookly_app/Features/home/presentation/views/widgets/neweset_body.dart';
 import 'package:flutter/material.dart';
 
 class SearchListView extends StatelessWidget {

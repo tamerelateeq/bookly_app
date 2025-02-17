@@ -26,7 +26,8 @@ class ServerFailures extends Failures {
         return ServerFailures(errMassage: 'Request is Cancel');
       case DioExceptionType.connectionError:
         return ServerFailures(
-            errMassage: 'Connection  is erorr, please try again later');
+            errMassage:
+                'Oops Internet Connection failed, please try again later');
       case DioExceptionType.unknown:
         if (dioError.message!.contains('SocketException')) {
           return ServerFailures(errMassage: 'No Internet Connection');

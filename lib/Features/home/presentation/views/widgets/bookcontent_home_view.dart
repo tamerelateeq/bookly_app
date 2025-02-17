@@ -1,3 +1,4 @@
+import 'package:bookly_app/Features/home/data/model/book_model/book_model.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/book_rate.dart';
 import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/styles.dart';
@@ -6,8 +7,9 @@ import 'package:flutter/material.dart';
 class BookContentText extends StatelessWidget {
   const BookContentText({
     super.key,
+    required this.bookModel,
   });
-
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -17,7 +19,7 @@ class BookContentText extends StatelessWidget {
         SizedBox(
           width: MediaQuery.of(context).size.width * .5,
           child: Text(
-            'Harry Potter and the Goblet of Fire',
+            bookModel.volumeInfo!.title!,
             style: Styles.textStyle20.copyWith(fontFamily: kGTSectraFineText),
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
@@ -27,7 +29,7 @@ class BookContentText extends StatelessWidget {
         const SizedBox(height: 3),
         // Sub Title
         Text(
-          'J.K. Rowling',
+          bookModel.volumeInfo!.authors![0],
           style: Styles.textStyle14.copyWith(color: Color(0xffb7b5bc)),
         ),
         // space
@@ -37,13 +39,16 @@ class BookContentText extends StatelessWidget {
           children: [
             // Price
             Text(
-              '199£',
+              'Free',
               style: Styles.textStyle20.copyWith(fontWeight: FontWeight.bold),
             ),
             //space
             const Spacer(),
             // Book Rating
-            BooksRate()
+            BooksRate(
+              pageCount: bookModel.volumeInfo!.pageCount!,
+              language: bookModel.volumeInfo!.language!,
+            )
           ],
         )
       ],

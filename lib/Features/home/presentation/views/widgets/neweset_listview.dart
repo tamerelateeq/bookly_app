@@ -34,9 +34,10 @@ class NewesetListView extends StatelessWidget {
             },
           );
         } else if (state is NewesetBooksFailure) {
-          return CustomeErrorWidget(errMassage: state.errMassage);
+          return Center(
+              child: CustomeErrorWidget(errMassage: state.errMassage));
         } else {
-          return CustomeLoadingWidget();
+          return Center(child: CustomeLoadingWidget());
         }
       },
     );

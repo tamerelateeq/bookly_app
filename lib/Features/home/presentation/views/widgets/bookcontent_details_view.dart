@@ -34,7 +34,10 @@ class BookDetails extends StatelessWidget {
         // space
         const SizedBox(height: 18),
         //  Rating
-        BooksRate()
+        BooksRate(
+          pageCount: 662,
+          language: '25/2/2025',
+        )
       ],
     );
   }

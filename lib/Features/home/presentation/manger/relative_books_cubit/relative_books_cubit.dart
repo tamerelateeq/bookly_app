@@ -8,12 +8,16 @@ part 'relative_books_state.dart';
 class RelativeBooksCubit extends Cubit<RelativeBooksState> {
   RelativeBooksCubit(this.homeRepo) : super(RelativeBooksInitial());
   final HomeRepo homeRepo;
-  Future<void> get(String category) async {
+  Future<void> fetchRelativeBooks(String category) async {
     emit(RelativeBooksLoading());
     var result = await homeRepo.fetchRelativeBooks(category: category);
     result.fold(
-      (failure) => emit(RelativeBooksFailure(failure.errMassage)),
-      (books) => emit(RelativeBooksSuccess(books)),
+      (failure) {
+        emit(RelativeBooksFailure(failure.errMassage));
+      },
+      (books) {
+        emit(RelativeBooksSuccess(books));
+      },
     );
   }
 }

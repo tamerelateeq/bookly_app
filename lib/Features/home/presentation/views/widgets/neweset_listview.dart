@@ -24,7 +24,8 @@ class NewesetListView extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, BookDetailsView.id);
+                    Navigator.pushNamed(context, BookDetailsView.id,
+                        arguments: state.books[index]);
                   },
                   child: NewesetBody(
                     bookModel: state.books[index],

@@ -1,11 +1,13 @@
 import 'package:bookly_app/Features/home/data/model/repos/home_repo_implmentation.dart';
 import 'package:bookly_app/Features/home/presentation/manger/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly_app/Features/home/presentation/manger/neweset_books.dart/neweset_books_cubit.dart';
+import 'package:bookly_app/Features/home/presentation/manger/relative_books_cubit/relative_books_cubit.dart';
 import 'package:bookly_app/Features/home/presentation/views/book_details_view.dart';
 import 'package:bookly_app/Features/home/presentation/views/home_view.dart';
 import 'package:bookly_app/Features/search/presentation/views/search_view.dart';
 import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/Features/splash/presentation/Views/splach_view.dart';
+import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/service_located.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,29 +27,32 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        // provider to get feature books
         BlocProvider(
           create: (context) => FeaturedBooksCubit(getIt.get<HomeRepoImpl>())
             ..fetchFeaturedBooks(),
         ),
+
+        // provider to get new books
         BlocProvider(
           create: (context) =>
               NewesetBooksCubit(getIt.get<HomeRepoImpl>())..fetchNewesetBooks(),
-        )
+        ),
+        // bloc provider for relative box
+        BlocProvider(
+          create: (context) => RelativeBooksCubit(getIt.get<HomeRepoImpl>()),
+          child: const BookDetailsView(),
+        ),
       ],
-      child: GetMaterialApp(
-        routes: {
-          'HomeView': (context) => HomeView(),
-          'BookDetailsView': (context) => BookDetailsView(),
-          'SearchView': (context) => SearchView(),
-        },
+      child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
+        routerConfig: AppRouter.router,
         theme: ThemeData.dark().copyWith(
           scaffoldBackgroundColor: kPrimaryColor,
           // get font type my google by add  pakages google fonts
           textTheme:
               GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
         ),
-        home: SplachView(),
       ),
     );
   }

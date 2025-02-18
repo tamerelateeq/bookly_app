@@ -1,8 +1,6 @@
 import 'package:bookly_app/Features/home/data/model/repos/home_repo_implmentation.dart';
 import 'package:bookly_app/Features/home/presentation/manger/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly_app/Features/home/presentation/manger/neweset_books.dart/neweset_books_cubit.dart';
-import 'package:bookly_app/Features/home/presentation/manger/relative_books_cubit/relative_books_cubit.dart';
-import 'package:bookly_app/Features/home/presentation/views/book_details_view.dart';
 import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/service_located.dart';
@@ -33,11 +31,6 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) =>
               NewesetBooksCubit(getIt.get<HomeRepoImpl>())..fetchNewesetBooks(),
-        ),
-        // bloc provider for relative box
-        BlocProvider(
-          create: (context) => RelativeBooksCubit(getIt.get<HomeRepoImpl>()),
-          child: const BookDetailsView(),
         ),
       ],
       child: MaterialApp.router(

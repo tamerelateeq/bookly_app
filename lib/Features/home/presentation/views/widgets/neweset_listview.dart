@@ -25,7 +25,8 @@ class NewesetListView extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 child: GestureDetector(
                   onTap: () {
-                    GoRouter.of(context).push(AppRouter.kBookDetailsView);
+                    GoRouter.of(context).push(AppRouter.kBookDetailsView,
+                        extra: state.books[index]);
                   },
                   child: NewesetBody(
                     bookModel: state.books[index],
@@ -38,7 +39,7 @@ class NewesetListView extends StatelessWidget {
           return Center(
               child: CustomeErrorWidget(errMassage: state.errMassage));
         } else {
-          return Center(child: CustomeLoadingWidget());
+          return Center(child: const CustomeLoadingWidget());
         }
       },
     );

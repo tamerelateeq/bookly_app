@@ -56,14 +56,15 @@ class HomeRepoImpl implements HomeRepo {
       {required String category}) async {
     try {
       var data = await apiService.gets(
-        endPoint:
-            'volumes?Filtering=free-ebooks&q=subject:$category&sorting=relevance',
+        endPoint: 'volumes?Filtering=free-ebooks&q=subject:Sex',
       );
-      List<BookModel> books = [];
-      for (var item in data['items']) {
-        books.add(BookModel.fromJson(data[item]));
+      List<BookModel> booksRelativeList = [];
+      for (var item in data["items"]) {
+        booksRelativeList.add(
+          BookModel.fromJson(item),
+        );
       }
-      return right(books);
+      return right(booksRelativeList);
     } on Exception catch (e) {
       if (e is DioException) {
         return left(ServerFailures.fromDioError(e));

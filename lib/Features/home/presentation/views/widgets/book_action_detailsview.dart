@@ -1,11 +1,14 @@
+import 'package:bookly_app/Features/home/data/model/book_model/book_model.dart';
 import 'package:bookly_app/core/widgets/custome_button.dart';
+import 'package:bookly_app/core/widgets/snake_massage.dart';
 import 'package:flutter/material.dart';
 
 class BookActions extends StatelessWidget {
   const BookActions({
     super.key,
+    required this.bookModel,
   });
-
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,20 +19,24 @@ class BookActions extends StatelessWidget {
             child:
                 // button for price
                 CustomeButton(
-              onTap: () {},
+              onTap: () {
+                bookModel.volumeInfo?.previewLink ??
+                    showSnackbar(context, 'Oops Preview Link Not found');
+              },
               colorButton: Colors.white,
               colorText: Colors.black,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(16),
                 topLeft: Radius.circular(16),
               ),
-              text: '19.99€',
+              text: 'Free',
             ),
           ),
 
           // Button for free
           Expanded(
             child: CustomeButton(
+              onTap: () {},
               colorButton: Color(0xffef8262),
               colorText: Colors.white,
               borderRadius: BorderRadius.only(

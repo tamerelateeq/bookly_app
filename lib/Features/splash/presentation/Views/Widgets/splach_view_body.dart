@@ -65,6 +65,7 @@ class _SplachViewBodyState extends State<SplachViewBody>
       GoRouter.of(context).push(AppRouter.kHomeview);
 
       // Get.to(
+
       //   transition: Transition.fadeIn,
       //   duration: kDurationTime,
       // );

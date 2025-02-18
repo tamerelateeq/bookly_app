@@ -1,7 +1,12 @@
+import 'package:bookly_app/Features/home/data/model/book_model/book_model.dart';
+import 'package:bookly_app/Features/home/data/model/repos/home_repo_implmentation.dart';
+import 'package:bookly_app/Features/home/presentation/manger/relative_books_cubit/relative_books_cubit.dart';
+import 'package:bookly_app/Features/home/presentation/views/book_details_view.dart';
 import 'package:bookly_app/Features/home/presentation/views/home_view.dart';
-import 'package:bookly_app/Features/home/presentation/views/widgets/bookcontent_details_view.dart';
 import 'package:bookly_app/Features/search/presentation/views/search_view.dart';
 import 'package:bookly_app/Features/splash/presentation/Views/splach_view.dart';
+import 'package:bookly_app/core/utils/service_located.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
@@ -16,17 +21,24 @@ abstract class AppRouter {
       // Home View
       GoRoute(
         path: kHomeview,
-        builder: (context, state) => HomeView(),
+        builder: (context, state) => const HomeView(),
       ),
       // Book Details View
       GoRoute(
         path: kBookDetailsView,
-        builder: (context, state) => BookDetails(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => RelativeBooksCubit(
+            getIt.get<HomeRepoImpl>(),
+          ),
+          child: BookDetailsView(
+            bookModel: state.extra as BookModel,
+          ),
+        ),
       ),
       // Search View
       GoRoute(
         path: kSearchView,
-        builder: (context, state) => SearchView(),
+        builder: (context, state) => const SearchView(),
       ),
     ],
   );

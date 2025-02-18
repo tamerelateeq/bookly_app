@@ -1,10 +1,11 @@
 import 'package:bookly_app/Features/home/presentation/manger/neweset_books.dart/neweset_books_cubit.dart';
-import 'package:bookly_app/Features/home/presentation/views/book_details_view.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/neweset_body.dart';
+import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/widgets/custome_error_widget.dart';
 import 'package:bookly_app/core/widgets/custome_loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class NewesetListView extends StatelessWidget {
   const NewesetListView({super.key});
@@ -24,8 +25,7 @@ class NewesetListView extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, BookDetailsView.id,
-                        arguments: state.books[index]);
+                    GoRouter.of(context).push(AppRouter.kBookDetailsView);
                   },
                   child: NewesetBody(
                     bookModel: state.books[index],

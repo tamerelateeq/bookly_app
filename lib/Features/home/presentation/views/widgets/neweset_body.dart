@@ -1,4 +1,4 @@
-import 'package:bookly_app/Features/home/data/model/book_model/book_model.dart';
+import 'package:bookly_app/core/model/book_model/book_model.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/bookcontent_home_view.dart';
 import 'package:bookly_app/core/widgets/custome_loading_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';

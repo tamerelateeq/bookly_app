@@ -1,6 +1,6 @@
 import 'package:bookly_app/Features/home/data/model/book_model/book_model.dart';
+import 'package:bookly_app/core/utils/function/launch_url.dart';
 import 'package:bookly_app/core/widgets/custome_button.dart';
-import 'package:bookly_app/core/widgets/snake_massage.dart';
 import 'package:flutter/material.dart';
 
 class BookActions extends StatelessWidget {
@@ -19,9 +19,8 @@ class BookActions extends StatelessWidget {
             child:
                 // button for price
                 CustomeButton(
-              onTap: () {
-                bookModel.volumeInfo?.previewLink ??
-                    showSnackbar(context, 'Oops Preview Link Not found');
+              onTap: () async {
+                cutomeLaunchUrl(context, bookModel.volumeInfo!.previewLink!);
               },
               colorButton: Colors.white,
               colorText: Colors.black,

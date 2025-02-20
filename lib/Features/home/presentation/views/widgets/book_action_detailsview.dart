@@ -1,5 +1,6 @@
 import 'package:bookly_app/core/model/book_model/book_model.dart';
 import 'package:bookly_app/core/utils/function/launch_url.dart';
+import 'package:bookly_app/core/widgets/custome_alert_dialog.dart';
 import 'package:bookly_app/core/widgets/custome_button.dart';
 import 'package:bookly_app/core/widgets/snake_massage.dart';
 import 'package:flutter/material.dart';
@@ -37,12 +38,25 @@ class BookActions extends StatelessWidget {
           Expanded(
             child: CustomeButton(
               onTap: () {
-                showCustomeSnackbar(
-                  context,
-                  'Please Download Adobe Digital Editions program ',
+                showDialog(
+                  context: context,
+                  builder: (context) => CustomAlertDialog(
+                    title: 'Notes',
+                    content: "Please Download Adobe Digital Editions program",
+                    confirmText: 'Ok',
+                    cancelText: 'Cancel',
+                    onConfirm: () {
+                      cutomeLaunchUrl(
+                          context,
+                          bookModel
+                              .accessInfo!.pdf!.acsTokenLink!); // Close dialog
+                      Navigator.pop(context);
+                    },
+                    onCancel: () {
+                      Navigator.pop(context); // Close dialog
+                    },
+                  ),
                 );
-                cutomeLaunchUrl(
-                    context, bookModel.accessInfo!.pdf!.acsTokenLink!);
               },
               colorButton: Color(0xffef8262),
               colorText: Colors.white,

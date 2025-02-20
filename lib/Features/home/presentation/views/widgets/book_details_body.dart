@@ -21,52 +21,59 @@ class BookDetailsBody extends StatelessWidget {
     return BlocBuilder<RelativeBooksCubit, RelativeBooksState>(
       builder: (context, state) {
         if (state is RelativeBooksSuccess) {
-          return Column(
-            children: [
-              // Custome App Bar
-              CustomeDetailsAppbar(),
-              // Image Items
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.3,
-                child: CustomeItems(
-                  imageUrl: bookModel.volumeInfo?.imageLinks?.thumbnail ?? '',
-                ),
-              ),
-              //space
-              const SizedBox(height: 43),
-              // Title description text
-              BookDetails(
-                bookModel: bookModel,
-              ),
-              //Spce
-              const SizedBox(height: 38),
-              // add Button for price & Free
-              BookActions(
-                bookModel: bookModel,
-              ),
-              //Spce
-              SizedBox(height: 50),
-              // text
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 38),
-                  child: Text(
-                    'You can also like',
-                    style: Styles.textStyle14.copyWith(
-                      fontWeight: FontWeight.w600,
+          return CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: Column(
+                  children: [
+                    // Custome App Bar
+                    CustomeDetailsAppbar(),
+                    // Image Items
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.3,
+                      child: CustomeItems(
+                        imageUrl:
+                            bookModel.volumeInfo?.imageLinks?.thumbnail ?? '',
+                      ),
                     ),
-                  ),
+                    //space
+                    const SizedBox(height: 43),
+                    // Title description text
+                    BookDetails(
+                      bookModel: bookModel,
+                    ),
+                    //Spce
+                    const SizedBox(height: 38),
+                    // add Button for price & Free
+                    BookActions(
+                      bookModel: bookModel,
+                    ),
+                    //Spce
+                    SizedBox(height: 50),
+                    // text
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 38),
+                        child: Text(
+                          'You can also like',
+                          style: Styles.textStyle14.copyWith(
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ),
+                    //Spce
+                    const SizedBox(height: 20),
+                    // List View
+                    DetailsListview(
+                      bookModel: bookModel,
+                    ),
+                    //Spce
+                    const SizedBox(height: 10),
+                  ],
                 ),
-              ),
-              //Spce
-              const SizedBox(height: 20),
-              // List View
-              DetailsListview(
-                bookModel: bookModel,
-              ),
-              //Spce
-              const SizedBox(height: 10),
+              )
             ],
           );
         } else if (state is RelativeBooksFailure) {

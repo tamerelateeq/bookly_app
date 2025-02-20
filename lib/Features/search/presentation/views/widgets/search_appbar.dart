@@ -28,7 +28,6 @@ class SearchAppbar extends StatelessWidget {
             ),
 
             // Menu for choose the type of serach
-
             SizedBox(
               width: 135,
               child: SearchDropDownMenu(),

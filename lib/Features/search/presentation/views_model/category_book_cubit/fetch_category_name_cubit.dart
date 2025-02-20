@@ -5,9 +5,10 @@ import 'package:equatable/equatable.dart';
 
 part 'fetch_category_name_state.dart';
 
-class FetchCategoryNameCubit extends Cubit<FetchCategoryNameState> {
+class FetchCategoryBookCubit extends Cubit<FetchCategoryBookState> {
   final SearchRepo searchRepo;
-  FetchCategoryNameCubit(this.searchRepo) : super(FetchCategoryNameInitial());
+  FetchCategoryBookCubit.fetchCategoryBookCubit(this.searchRepo)
+      : super(FetchCategoryBookInitial());
   Future<void> fetchCategoryBook({required String category}) async {
     emit(FeaturedCategoryBooksLoading());
     var result = await searchRepo.fetchCategoryBook(category: category);

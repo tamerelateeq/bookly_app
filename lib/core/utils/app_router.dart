@@ -1,3 +1,8 @@
+import 'package:bookly_app/Features/search/data/model/repos/search_repo_impl.dart';
+import 'package:bookly_app/Features/search/presentation/views_model/author_book_cubit/fetch_author_book_cubit.dart';
+import 'package:bookly_app/Features/search/presentation/views_model/category_book_cubit/fetch_category_name_cubit.dart';
+import 'package:bookly_app/Features/search/presentation/views_model/isbn_book_cubit/fetch_isbn_book_cubit.dart';
+import 'package:bookly_app/Features/search/presentation/views_model/name_book_cubit/fetch_name_book_cubit.dart';
 import 'package:bookly_app/core/model/book_model/book_model.dart';
 import 'package:bookly_app/Features/home/data/model/repos/home_repo_implmentation.dart';
 import 'package:bookly_app/Features/home/presentation/manger/relative_books_cubit/relative_books_cubit.dart';
@@ -38,7 +43,32 @@ abstract class AppRouter {
       // Search View
       GoRoute(
         path: kSearchView,
-        builder: (context, state) => const SearchView(),
+        builder: (context, state) => MultiBlocProvider(providers: [
+          // Category Book
+          BlocProvider(
+            create: (context) => FetchCategoryBookCubit.fetchCategoryBookCubit(
+              getIt.get<SearchRepoImpl>(),
+            ),
+          ),
+          // Name Book
+          BlocProvider(
+            create: (context) => FetchNameBookCubit(
+              getIt.get<SearchRepoImpl>(),
+            ),
+          ),
+          // Isbn
+          BlocProvider(
+            create: (context) => FetchIsbnBookCubit(
+              getIt.get<SearchRepoImpl>(),
+            ),
+          ),
+          // Author
+          BlocProvider(
+            create: (context) => FetchAuthorBookCubit(
+              getIt.get<SearchRepoImpl>(),
+            ),
+          ),
+        ], child: const SearchView()),
       ),
     ],
   );

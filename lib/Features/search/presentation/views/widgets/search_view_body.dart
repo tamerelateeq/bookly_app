@@ -1,4 +1,5 @@
 import 'package:bookly_app/Features/search/presentation/views/widgets/search_appbar.dart';
+import 'package:bookly_app/Features/search/presentation/views/widgets/search_list_view.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class SearchViewBody extends StatelessWidget {
         // add app bar
         SearchAppbar(),
         // add Head Title
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(left: 20),
           child: Text(
             'Search Result',
@@ -21,12 +22,12 @@ class SearchViewBody extends StatelessWidget {
           ),
         ),
         //space
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
 
         // add list view body
-        // Expanded(
-        //   child: SearchListView(),
-        // ),
+        Expanded(
+          child: SearchListView(),
+        ),
       ],
     );
   }

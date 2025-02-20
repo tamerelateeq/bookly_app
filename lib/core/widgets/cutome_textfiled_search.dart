@@ -37,13 +37,15 @@ class CustomeTextFieldSearch extends StatelessWidget {
       onSaved: onSaved,
       maxLines: maxLines,
       decoration: InputDecoration(
-        prefixIcon:
-            IconButton(onPressed: onPressedPrefix, icon: Icon(prefixIcon)),
-        suffixIcon:
-            IconButton(onPressed: onPressedSuffix, icon: Icon(suffixIcon)),
+        prefixIcon: prefixIcon != null
+            ? IconButton(onPressed: onPressedPrefix, icon: Icon(prefixIcon))
+            : null,
+        suffixIcon: suffixIcon != null
+            ? IconButton(onPressed: onPressedSuffix, icon: Icon(suffixIcon))
+            : null,
         border: buildBulder(),
         enabledBorder: buildBulder(),
-        focusedBorder: buildBulder(Colors.white),
+        focusedBorder: buildBulder(),
         hintText: hintText,
       ),
     );
@@ -51,8 +53,9 @@ class CustomeTextFieldSearch extends StatelessWidget {
 
   OutlineInputBorder buildBulder([color]) {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(16),
-      borderSide: BorderSide(color: Colors.white),
+      borderRadius: BorderRadius.only(
+          topRight: Radius.circular(16), bottomRight: Radius.circular(16)),
+      borderSide: BorderSide(),
     );
   }
 }

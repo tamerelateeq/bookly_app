@@ -1,5 +1,4 @@
 import 'package:bookly_app/Features/search/presentation/views/widgets/search_appbar.dart';
-import 'package:bookly_app/Features/search/presentation/views/widgets/search_drop_down_menu.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 

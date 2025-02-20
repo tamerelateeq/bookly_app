@@ -62,13 +62,7 @@ class _SplachViewBodyState extends State<SplachViewBody>
   void navigationToHome() {
     Future.delayed(const Duration(seconds: 3), () {
       // to push new screen
-      GoRouter.of(context).push(AppRouter.kHomeview);
-
-      // Get.to(
-
-      //   transition: Transition.fadeIn,
-      //   duration: kDurationTime,
-      // );
+      GoRouter.of(context).pushReplacement(AppRouter.kHomeview);
     });
   }
 }

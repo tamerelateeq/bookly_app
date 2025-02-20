@@ -17,7 +17,8 @@ class SearchRepoImpl implements SearchRepo {
           endPoint:
               'volumes?Filtering=free-ebooks&sorting=relevance&q=inauthor:$author');
       List<BookModel> books = [];
-      for (var item in data["items"]) {
+
+      for (var item in data['items']) {
         books.add(BookModel.fromJson(item));
       }
 

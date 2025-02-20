@@ -1,6 +1,9 @@
 import 'package:bookly_app/Features/search/presentation/views/widgets/search_drop_down_menu.dart';
+import 'package:bookly_app/Features/search/presentation/views_model/fetch_data_book.dart/fetch_data_book_cubit.dart';
 import 'package:bookly_app/core/widgets/cutome_textfiled_search.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class SearchAppbar extends StatelessWidget {
   const SearchAppbar({super.key});
@@ -21,7 +24,7 @@ class SearchAppbar extends StatelessWidget {
               width: 35,
               child: IconButton(
                 onPressed: () {
-                  Navigator.pop(context);
+                  GoRouter.of(context).pop();
                 },
                 icon: const Icon(Icons.arrow_back),
               ),
@@ -36,7 +39,12 @@ class SearchAppbar extends StatelessWidget {
 
             // Search Text
             Expanded(
-              child: CustomeTextFieldSearch(),
+              child: CustomeTextFieldSearch(
+                onSubmited: (value) {
+                  BlocProvider.of<FetchDataBookCubit>(context)
+                      .fetchSearchData(value);
+                },
+              ),
             ),
           ],
         ),

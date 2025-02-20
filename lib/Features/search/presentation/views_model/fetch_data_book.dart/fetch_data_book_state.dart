@@ -17,6 +17,8 @@ final class FetchDataBookFailure extends FetchDataBookState {
   const FetchDataBookFailure(this.errMassage);
 }
 
+final class FetchDataBookNoresult extends FetchDataBookState {}
+
 final class FetchDataBookSuccess extends FetchDataBookState {
   final List<BookModel> books;
 

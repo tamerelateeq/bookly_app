@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 
 class CustomeTextFieldSearch extends StatelessWidget {
-  const CustomeTextFieldSearch(
-      {super.key,
-      this.hintText,
-      this.intialValue,
-      this.maxLines = 1,
-      this.onSaved,
-      this.onChanged,
-      this.prefixIcon,
-      this.onPressedPrefix,
-      this.onPressedSuffix,
-      this.suffixIcon});
+  const CustomeTextFieldSearch({
+    super.key,
+    this.hintText,
+    this.intialValue,
+    this.maxLines = 1,
+    this.onSaved,
+    this.onChanged,
+    this.prefixIcon,
+    this.onPressedPrefix,
+    this.onPressedSuffix,
+    this.suffixIcon,
+    this.onSubmited,
+  });
   final String? hintText;
   final String? intialValue;
 
@@ -20,6 +22,8 @@ class CustomeTextFieldSearch extends StatelessWidget {
   final void Function()? onPressedSuffix;
   final void Function(String?)? onSaved;
   final void Function(String)? onChanged;
+  final void Function(String)? onSubmited;
+
   final IconData? prefixIcon;
   final IconData? suffixIcon;
   @override
@@ -34,6 +38,7 @@ class CustomeTextFieldSearch extends StatelessWidget {
       },
       initialValue: intialValue,
       onChanged: onChanged,
+      onFieldSubmitted: onSubmited,
       onSaved: onSaved,
       maxLines: maxLines,
       decoration: InputDecoration(

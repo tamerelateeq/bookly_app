@@ -29,7 +29,7 @@ class BookContentText extends StatelessWidget {
         const SizedBox(height: 3),
         // Sub Title
         Text(
-          bookModel.volumeInfo!.authors![0],
+          bookModel.volumeInfo?.authors?[0] ?? '',
           style: Styles.textStyle14.copyWith(color: Color(0xffb7b5bc)),
         ),
         // space
@@ -46,7 +46,7 @@ class BookContentText extends StatelessWidget {
             const Spacer(),
             // Book Rating
             BooksRate(
-              pageCount: bookModel.volumeInfo!.pageCount!,
+              pageCount: bookModel.volumeInfo?.pageCount ?? 0,
               language: bookModel.volumeInfo!.language!,
             )
           ],

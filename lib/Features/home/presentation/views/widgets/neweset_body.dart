@@ -19,7 +19,7 @@ class NewesetBody extends StatelessWidget {
             child: AspectRatio(
               aspectRatio: 2.6 / 4,
               child: CachedNetworkImage(
-                imageUrl: bookModel.volumeInfo!.imageLinks!.thumbnail!,
+                imageUrl: bookModel.volumeInfo?.imageLinks?.thumbnail ?? '',
                 fit: BoxFit.fill,
                 placeholder: (context, url) => CustomeLoadingWidget(),
                 errorWidget: (context, url, error) => Icon(Icons.error),

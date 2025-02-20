@@ -13,28 +13,27 @@ class SearchDropDownMenu extends StatelessWidget {
             right: BorderSide(color: Color.fromARGB(255, 214, 213, 213))),
       ),
       child: DropdownMenu<String>(
+        initialSelection: 'intitle:',
         onSelected: (value) {
-          value ??= 'intitle:';
           switch (value) {
             case 'intitle:':
-              BlocProvider.of<FetchDataBookCubit>(context)
-                  .fetchDataBook(data: value);
+              BlocProvider.of<FetchDataBookCubit>(context).fetchTypeData(value);
               break;
             case 'inauthor:':
-              BlocProvider.of<FetchDataBookCubit>(context)
-                  .fetchDataBook(data: value);
+              BlocProvider.of<FetchDataBookCubit>(context).fetchTypeData(value);
+
               break;
             case 'subject:':
-              BlocProvider.of<FetchDataBookCubit>(context)
-                  .fetchDataBook(data: value);
+              BlocProvider.of<FetchDataBookCubit>(context).fetchTypeData(value);
+
               break;
             case 'isbn:':
-              BlocProvider.of<FetchDataBookCubit>(context)
-                  .fetchDataBook(data: value);
+              BlocProvider.of<FetchDataBookCubit>(context).fetchTypeData(value);
+
               break;
             default:
               BlocProvider.of<FetchDataBookCubit>(context)
-                  .fetchDataBook(data: value);
+                  .fetchTypeData('intitle:');
           }
         },
         dropdownMenuEntries: [

@@ -16,7 +16,7 @@ class _BookDetailsViewState extends State<BookDetailsView> {
   @override
   void initState() {
     BlocProvider.of<RelativeBooksCubit>(context).fetchRelativeBooks(
-      widget.bookModel.volumeInfo!.categories![0],
+      widget.bookModel.volumeInfo?.categories?[0] ?? '',
     );
     super.initState();
   }

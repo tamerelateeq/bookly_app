@@ -19,7 +19,7 @@ class BookContentText extends StatelessWidget {
         SizedBox(
           width: MediaQuery.of(context).size.width * .5,
           child: Text(
-            bookModel.volumeInfo!.title!,
+            bookModel.volumeInfo?.title ?? '',
             style: Styles.textStyle20.copyWith(fontFamily: kGTSectraFineText),
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
